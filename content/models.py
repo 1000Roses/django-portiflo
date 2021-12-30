@@ -1,8 +1,8 @@
 from django.db import models
 from django.db.models.deletion import CASCADE
 from django.db.models.fields import BLANK_CHOICE_DASH
-
-
+from datetime import date, datetime
+import pytz
 
 class Content(models.Model):
     content = models.CharField(max_length=150, blank=True, null=True)
@@ -31,7 +31,7 @@ class Section(models.Model):
 class Post(models.Model):
     title = models.CharField(max_length=150, blank=True, null=True)
     brief_content = models.CharField(max_length=300, blank=True, null=True)
-
+    last_day_edited = models.DateField(default=datetime.now(pytz.timezone('Asia/Ho_Chi_Minh')).date())
     def __str__(self):
         return self.title
 

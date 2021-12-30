@@ -69,7 +69,7 @@ class PostSerializer(serializers.ModelSerializer):
     post_section = PostSectionSerializer(many=True)
     class Meta:
         model = Post
-        fields = ('title', 'brief_content', 'post_section', )
+        fields = ('title', 'last_day_edited', 'brief_content', 'post_section', )
         extra_kwargs = {
             'brief_content': {'write_only': True},
         }
